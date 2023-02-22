@@ -1,0 +1,17 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%date{dd/MM/yy HH:mm:ss}] %level [%thread] %logger{10} %5p [%X{traceId:-},%X{spanId:-},%X{X-Span-Export:-}] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="ru.barabanra.demokotlin" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="ru.barabanra.demokotlin.DemoKotlinApplication" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <root level="ERROR">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
