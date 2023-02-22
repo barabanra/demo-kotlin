@@ -1,14 +1,6 @@
 version: '3.3'
 
 services:
-  wiremock-demo-kotlin:
-    image: rodolpheche/wiremock
-    container_name: wiremock-demo-kotlin
-    ports:
-      - "8088:9999"
-    volumes:
-      - ./mock:/home/wiremock
-    command: [ --global-response-templating, --async-response-enabled=true, --async-response-threads=500, --container-threads=500, --disable-request-logging, --max-request-journal-entries=5000,--port=9999,--no-request-journal ]
 
   postgres-demo-kotlin:
     container_name: postgres-demo-kotlin

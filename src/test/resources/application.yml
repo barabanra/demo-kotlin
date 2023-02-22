@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: kotlin-hello
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+db:
+  datasource:
+    username: ${POSTGRES_TEST_CONTAINER_USERNAME}
+    password: ${POSTGRES_TEST_CONTAINER_PASSWORD}
+    jdbc-url: ${POSTGRES_TEST_CONTAINER_URL}
+    driver-class-name: org.postgresql.Driver
+    pool-name: pool-name
+    max-pool-size: 20
+    connection-timeout: 15000
+    validation-timeout: 10000
+    idle-timeout: 30000
+    min-idle: 5
+
+flyway:
+  url: ${POSTGRES_TEST_CONTAINER_URL}
+  schemas: public
+  user: ${POSTGRES_TEST_CONTAINER_USERNAME}
+  password: ${POSTGRES_TEST_CONTAINER_PASSWORD}
+
+logging:
+  config: 'classpath:logback-test.xml'
+
+info:
+  app:
+    version: 1.0
+
+springdoc:
+  servers: http://localhost:8080
+  api-docs:
+    enabled: false

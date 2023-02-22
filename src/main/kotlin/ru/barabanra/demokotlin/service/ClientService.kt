@@ -6,6 +6,6 @@ interface ClientService {
 
     fun findById(id: Long): ClientDto
 
-    fun findAll(): List<ClientDto>
+    fun save(request: ClientDto): ClientDto
 
 }

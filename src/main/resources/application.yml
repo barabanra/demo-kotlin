@@ -1,3 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: kotlin-hello
+
 db:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -11,10 +18,21 @@ db:
     password: postgres
     jdbc-url: jdbc:postgresql://localhost:5432/test
 
+flyway:
+  url: ${db.datasource.jdbc-url}
+  schemas: public
+  user: ${db.datasource.username}
+  password: ${db.datasource.password}
 
-spring:
-  application:
-    name: kotlin-hello
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
-  sleuth:
-    enabled: true
+info:
+  app:
+    version: 1.0
+
+springdoc:
+  servers: http://localhost:${server.port}

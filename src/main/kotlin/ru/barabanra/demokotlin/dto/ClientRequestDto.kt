@@ -1,7 +1,6 @@
 package ru.barabanra.demokotlin.dto
 
-data class ClientDto(
+data class ClientRequestDto(
     val name: String?,
-    val age: Int?,
-    val id: Long?
+    val age: Int
 )
